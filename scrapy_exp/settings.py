@@ -90,7 +90,7 @@ DOWNLOAD_DELAY = 5
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
 #change output directory
-FEED_URI = '../scraped_data/'
+#FEED_URI = ''
 
 #force scrapy to encode by utf-8
 #do this to avoid unrecognized characters on raw data

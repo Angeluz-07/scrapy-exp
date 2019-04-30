@@ -19,6 +19,6 @@ Scrapy experiments with some spices of ML on the scraped data.
 
 ## Examples
 ```
->> scrapy crawl <spider_name> -o <file_name>.json #run spider and output to json file
+>> scrapy crawl <spider_name> -o ./scraped_data/<file_name>.json #run spider and output to json file
 >> python3 ./ml_iterations/tm_2.py #run topic modelling on elixircompanies.json
 ```
