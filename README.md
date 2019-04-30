@@ -9,7 +9,7 @@ Scrapy experiments with some spices of ML on the scraped data.
 
 ## About spiders
 - `elixircompanies.py` : scrapes descriptions of companies using Elixir programming language. 
-  - `./ml_iterations/tm_2.py` runs topic modelling on this descriptions.
+  - `./ml_iterations/tm_2.py` runs topic modelling on these descriptions.
 
 ## Dependencies
 - [Scrapy](https://docs.scrapy.org/en/latest/intro/install.html) (use it with virtualenv)
