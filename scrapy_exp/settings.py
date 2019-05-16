@@ -46,15 +46,28 @@ DOWNLOAD_DELAY = 5
 
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+
 #SPIDER_MIDDLEWARES = {
 #    'scrapy_exp.middlewares.ScrapyExpSpiderMiddleware': 543,
 #}
 
+SPIDER_MIDDLEWARES = {
+    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
+}
+
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
+
 #DOWNLOADER_MIDDLEWARES = {
 #    'scrapy_exp.middlewares.ScrapyExpDownloaderMiddleware': 543,
 #}
+
+#this is used for splash
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
+    'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
+}
 
 # Enable or disable extensions
 # See https://doc.scrapy.org/en/latest/topics/extensions.html
@@ -96,4 +109,5 @@ DOWNLOAD_DELAY = 5
 #do this to avoid unrecognized characters on raw data
 FEED_EXPORT_ENCODING = 'utf-8'
 
-
+#this is used for splash
+SPLASH_URL = 'http://0.0.0.0:8050/'
