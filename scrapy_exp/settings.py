@@ -81,6 +81,12 @@ DOWNLOADER_MIDDLEWARES = {
 #    'scrapy_exp.pipelines.ScrapyExpPipeline': 300,
 #}
 
+#this is for quotestoscrapecrawl spider. Uncomment this, when using that spider
+#ITEM_PIPELINES = {
+#    'scrapy_exp.pipelines.FilterDuplicate': 300,
+#}
+
+
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
