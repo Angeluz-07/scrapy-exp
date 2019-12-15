@@ -4,12 +4,6 @@
 - `./scrapy_exp/settings.py` contains settings of scrapy.
 - `./scraped_data` contains data gathered using specific purpose spiders.
 
-## About spiders
-- `elixircompanies.py` : scrapes descriptions of companies using Elixir programming language.
-
-## Dependencies
-- [Scrapy](https://docs.scrapy.org/en/latest/intro/install.html)
-
 ## Set new dev environment in Windows
 - `mkdir .venv`
 - `python -m venv .venv`
