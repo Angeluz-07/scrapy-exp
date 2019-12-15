@@ -17,6 +17,12 @@ Scrapy experiments with some spices of ML on the scraped data.
   - Specific downloaded [data](https://www.nltk.org/data.html) from NLTK servers are: punkt, stop_words, wordnet.
 - [Gensim](https://radimrehurek.com/gensim/install.html)
 
+## Set new dev environment in Windows
+- `mkdir .venv`
+- `python -m venv .venv`
+- `.venv\Scripts\activate.bat`
+- `pip install -r requirements.txt`
+
 ## Examples
 ```
 >> scrapy crawl <spider_name> -o ./scraped_data/<file_name>.json #run spider and output to json file
