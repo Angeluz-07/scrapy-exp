@@ -32,13 +32,13 @@ class YouzhangSpider(scrapy.Spider):
                     'lua_source' : self.lua_script
                 }
             )
-        """
+        
         next_page_xpath = "//li[@class='page-item  active ']/following-sibling::li[1]/a/@href"
         next_page = response.xpath(next_page_xpath).get()
         if next_page:
             next_page = response.urljoin(next_page)
             yield scrapy.Request( url = next_page, callback = self.parse )
-        """
+        
 
     def save_screenshot(self, response):        
         json_string_decoded = response.body.decode("utf-8")
