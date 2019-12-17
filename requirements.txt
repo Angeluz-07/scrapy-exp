@@ -1,2 +1,2 @@
 Scrapy
-scrapy_splash
+scrapy-splash
