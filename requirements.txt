@@ -1,2 +1,6 @@
+# Scrapy
 Scrapy
 scrapy-splash
+
+# Code quality
+flake8
