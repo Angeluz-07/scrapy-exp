@@ -1,11 +1,6 @@
 # Scrapy Experiments
-- `./scrapy_exp/spiders` contains specific purpose spiders.
-- `./scrapy_exp/items.py` contains the input/output processing step of scrapy.
-- `./scrapy_exp/settings.py` contains settings of scrapy.
-- `./scraped_data` contains data gathered using specific purpose spiders.
 
-## About spiders
-- `elixircompanies.py` : scrapes descriptions of companies using Elixir programming language.
+A personal repository with Scrapy projects for learning and experimentation purposes.
 
 ## Set development environment
 ###  Windows
@@ -22,29 +17,43 @@ virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ````
-## Examples
+## Projects
+
+### Scrapy examples 
+
+Contains examples of how to create spiders for basic webscraping.
+
+In the project folder `/scrapy_exp` is possible to run.
 ```
-scrapy crawl <spider_name> -o ./scraped_data/<file_name>.json #run spider and output to json file
+scrapy crawl quotes -o ./data/<output_filename>.json
+scrapy crawl quotesjs -o ./data/<output_filename>.json
+scrapy crawl bookscrawl -o ./data/<output_filename>.json
 ```
 
 ### Web UI scraping
 
-In the project folder `/web_ui` is possible to run
+Contains spiders to scrape urls and take screenshots of websites.
+
+In the project folder `/web_ui` is possible to run.
 ```
 scrapy crawl youzhan -o ./data/<output_filename>.json
 scrapy crawl siteinspire -o ./data/<output_filename>.json
+scrapy crawl ui_saver
 ```
+
+Output to xml and csv formats is also available, by changing output file format from `.json` to `.xml` or `.csv`.
+
 These spiders scrape website urls. Checkout spiders for more details.
 
 
 ## Run scrapy with Splash
 
-Check [Splash Docs](https://splash.readthedocs.io/en/stable/) for installation instructions.
-
-In a new a terminal run
+Some spiders require Splash. In a new a terminal run.
 ```
 sudo docker run -it -p 8050:8050 --rm scrapinghub/splash
 ```
+
+Check [Splash Docs](https://splash.readthedocs.io/en/stable/) for installation instructions.
 
 
 ## Built with
