@@ -51,6 +51,7 @@ DOWNLOAD_DELAY = 5
 #    'scrapy_exp.middlewares.ScrapyExpSpiderMiddleware': 543,
 #}
 
+# Splash spider middlewares
 SPIDER_MIDDLEWARES = {
     'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
 }
@@ -62,7 +63,7 @@ SPIDER_MIDDLEWARES = {
 #    'scrapy_exp.middlewares.ScrapyExpDownloaderMiddleware': 543,
 #}
 
-#this is used for splash
+# Splash downloader middlewares
 DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
@@ -81,7 +82,7 @@ DOWNLOADER_MIDDLEWARES = {
 #    'scrapy_exp.pipelines.ScrapyExpPipeline': 300,
 #}
 
-#this is for quotestoscrapecrawl spider. Uncomment this, when using that spider
+# Used in quotes and quotesjs spiders. Uncomment, when using those spiders
 #ITEM_PIPELINES = {
 #    'scrapy_exp.pipelines.FilterDuplicate': 300,
 #}
@@ -108,12 +109,10 @@ DOWNLOADER_MIDDLEWARES = {
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
-#change output directory
-#FEED_URI = ''
 
-#force scrapy to encode by utf-8
-#do this to avoid unrecognized characters on raw data
+# Force scrapy to encode by utf-8
+# Do this to avoid unrecognized characters on raw data
 FEED_EXPORT_ENCODING = 'utf-8'
 
-#this is used for splash
+# Splash server
 SPLASH_URL = 'http://0.0.0.0:8050/'

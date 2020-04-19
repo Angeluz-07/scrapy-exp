@@ -7,26 +7,27 @@
 
 import scrapy
 
-#check out docs to see for what scrapy does use i/o processors
+# Utilities to process input
+from w3lib.html import remove_tags, replace_escape_chars
+import re
+
+# Check out Scrapy docs to see the use of I/O processors
 from scrapy.loader.processors import MapCompose, TakeFirst, Join
 
-#import useful functions to process input
-from w3lib.html import remove_tags,replace_escape_chars
-import re
 
 #custom function to remove scape chars
 #modify the original just a bit to get cleaner ouput.
 def remove_escape_chars(s):
     return replace_escape_chars(s,replace_by = u' ')
 
-#clean numeric values. 
-#It doesn't work if the number has commas and single quotes(e.g. 1'000,000)
-def just_number(s):
-    return re.sub("[^\d\.]","",s)
 
-#remove  '“' and '”' characters
-def remove_quotations(s):
-    return s.replace(u'“','').replace(u'”','')
+def just_number(s):
+    """
+    Clean numeric values.
+    It doesn't work if the number has commas and single quotes(e.g. 1'000,000)
+    """
+    return re.sub(r'[^\d\.]', "", s)
+
 
 # Used in elixircompanies.py
 class CompanyItem(scrapy.Item):
@@ -64,21 +65,35 @@ class HouseItem(scrapy.Item):
         output_processor = TakeFirst()
     )
 
-# Used in quotestoscrape.py
+
 class QuotesItem(scrapy.Item):
-    # define the fields for your item here like:
+    """
+    Custom Item used in ./spiders/quotestoscrape.py
+    """
+
+    def remove_quotations(s: str) -> str:
+        """
+        Remove  '“' and '”' characters
+        """
+        return s.replace(u'“', '').replace(u'”', '')
+
+    # Item Fields
     quote = scrapy.Field(
-        input_processor = MapCompose(str.strip,remove_quotations),
-        output_processor = TakeFirst()
+        input_processor=MapCompose(
+            str.strip,
+            remove_quotations
+        ),
+        output_processor=TakeFirst()
     )
     author = scrapy.Field(
-        input_processor = MapCompose(str.strip),
-        output_processor = TakeFirst()
+        input_processor=MapCompose(str.strip),
+        output_processor=TakeFirst()
     )
     tags = scrapy.Field(
-        input_processor = MapCompose(remove_tags,str.strip),
-        output_processor = Join(';')
+        input_processor=MapCompose(remove_tags, str.strip),
+        output_processor=Join(';')
     )
+
 
 class ScrapyExpItem(scrapy.Item):
     # define the fields for your item here like:
