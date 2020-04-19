@@ -21,5 +21,5 @@ class YouzhanSpider(scrapy.Spider):
         next_page_xpath = "//li[@class='page-item  active ']/following-sibling::li[1]/a/@href"
         next_page = response.xpath(next_page_xpath).get()
         if next_page:
-            next_page = response.urljoin(next_page)
-            yield scrapy.Request(url=next_page, callback=self.parse)
+            next_page_url = response.urljoin(next_page)
+            yield scrapy.Request(url=next_page_url, callback=self.parse)

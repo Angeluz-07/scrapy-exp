@@ -59,12 +59,14 @@ SPIDER_MIDDLEWARES = {
 #DOWNLOADER_MIDDLEWARES = {
 #    'web_ui.middlewares.WebUiDownloaderMiddleware': 543,
 #}
+
 DOWNLOADER_MIDDLEWARES = {
     'scrapy_splash.SplashCookiesMiddleware': 723,
     'scrapy_splash.SplashMiddleware': 725,
     'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware': 810,
     'scrapy.downloadermiddlewares.retry.RetryMiddleware' : None,
 }
+
 DUPEFILTER_CLASS = 'scrapy_splash.SplashAwareDupeFilter'
 
 # Enable or disable extensions
@@ -100,4 +102,5 @@ HTTPCACHE_ENABLED = True
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
 
+# Splash server
 SPLASH_URL = 'http://0.0.0.0:8050/'
